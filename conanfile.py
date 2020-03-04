@@ -45,6 +45,7 @@ class Qt4Conan(ConanFile):
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
         self.copy(pattern="*", src="src/include", dst="include", keep_path=True)
+        self.copy(pattern="*", src="src", dst="src", keep_path=True)
         self.copy(pattern="*", src="src/bin", dst="bin", keep_path=True)
         self.copy(pattern="*", src="src/plugins", dst="plugins", keep_path=True)
         self.copy(pattern="*", src="src/mkspecs", dst="mkspecs", keep_path=True)
@@ -58,7 +59,6 @@ class Qt4Conan(ConanFile):
 
     def package_info(self):
         include_dir = os.path.join(self._source_subfolder, "include")
-        print(include_dir)
         self.cpp_info.libs = tools.collect_libs(self)
         self.cpp_info.includedirs = ["include"]
         self.cpp_info.bindirs = ["bin"]
