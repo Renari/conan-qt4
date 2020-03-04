@@ -1,3 +1,5 @@
+.idea/
+
 venv/
 conan.lock
 conanbuildinfo.txt
